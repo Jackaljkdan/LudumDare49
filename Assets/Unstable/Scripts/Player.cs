@@ -15,6 +15,8 @@ namespace Unstable
 
         public float stepMovement = 0.28f;
 
+        public float rotationLerp = 0.1f;
+
         [Range(0f, 10)]
         [SerializeField]
         private float _speed = 1;
@@ -51,9 +53,16 @@ namespace Unstable
             set => GetComponent<Animator>().speed = value;
         }
 
+        private Checkpoint nextCheckpoint;
+
         [Inject]
         private Balance balance = null;
-
+        
+        [Inject]
+        private void Inject([Inject(Id = "first")] Checkpoint firstCheckpoint)
+        {
+            nextCheckpoint = firstCheckpoint;
+        }
 
         private void Start()
         {
@@ -65,7 +74,25 @@ namespace Unstable
         {
             if (moving)
             {
-                transform.position = transform.position + Vector3.forward * stepMovement * Time.deltaTime * Speed;
+                float speed = Speed;
+
+                Vector3 movement;
+
+                if (nextCheckpoint != null)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, nextCheckpoint.transform.rotation, Time.deltaTime * rotationLerp * speed);
+                    movement = (nextCheckpoint.transform.position - transform.position).normalized;
+                }
+                else
+                {
+                    movement = transform.TransformDirection(Vector3.forward);
+                }
+
+                transform.position = transform.position + movement * stepMovement * Time.deltaTime * speed;
+
+                if (nextCheckpoint != null && (transform.position - nextCheckpoint.transform.position).sqrMagnitude < 0.0001f)
+                    nextCheckpoint = nextCheckpoint.next;
+
                 return;
             }
 
