@@ -1,0 +1,16 @@
+Assets/URP*
+
+/Builds/
+/Library/
+/Logs/
+/obj/
+/Temp/
+SceneDependencyCache*
+.vs/
+.vsconfig
+*.csproj
+*.sln
+*.zip*
+
+ignore*
+.ignore
