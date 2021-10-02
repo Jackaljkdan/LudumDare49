@@ -8949,7 +8949,8 @@ MonoBehaviour:
   maxRotation: 45
   inputLerp: 0.005
   inertiaLerp: 0.0015
-  impactLerp: 1
+  impactLerp: 0.4
+  hitMultiplier: 0.8
   maxInertia: 0.02
   inertia: 0
   onBalanceLost:

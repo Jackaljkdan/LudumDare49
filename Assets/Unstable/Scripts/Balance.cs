@@ -19,6 +19,7 @@ namespace Unstable
         public float inputLerp = 0.2f;
         public float inertiaLerp = 0.3f;
         public float impactLerp = 0.1f;
+        public float hitMultiplier = 0.5f;
 
         public float maxInertia = 0.1f;
 
@@ -72,7 +73,8 @@ namespace Unstable
         private void OnHit(Collider hit, Collision collision)
         {
             float hitDot = Vector3.Dot(transform.right, collision.impulse.normalized);
-            balance = balance + hitDot * impactLerp;
+            balance = balance + hitDot * hitMultiplier;
+            inertia = Mathf.Lerp(inertia, Mathf.Sign(hitDot), impactLerp);
         }
     }
     
