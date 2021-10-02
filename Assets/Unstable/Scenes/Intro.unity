@@ -2091,6 +2091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balanceRotationMultiplier: -1
+  lerp: 0.02
 --- !u!1 &1073484711
 GameObject:
   m_ObjectHideFlags: 0
