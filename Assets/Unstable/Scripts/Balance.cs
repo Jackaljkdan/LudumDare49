@@ -18,6 +18,7 @@ namespace Unstable
 
         public float inputLerp = 0.2f;
         public float inertiaLerp = 0.3f;
+        public float impactLerp = 0.1f;
 
         public float maxInertia = 0.1f;
 
@@ -26,6 +27,12 @@ namespace Unstable
         public UnityEvent onBalanceLost = new UnityEvent();
 
         #endregion
+
+        private void Start()
+        {
+            foreach (var detectors in GetComponentsInChildren<HitDetector>())
+                detectors.onHit.AddListener(OnHit);
+        }
 
         private void Update()
         {
@@ -60,6 +67,12 @@ namespace Unstable
                 enabled = false;
                 onBalanceLost.Invoke();
             }
+        }
+
+        private void OnHit(Collider hit, Collision collision)
+        {
+            float hitDot = Vector3.Dot(transform.right, collision.impulse.normalized);
+            balance = balance + hitDot * impactLerp;
         }
     }
     

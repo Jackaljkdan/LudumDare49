@@ -4794,6 +4794,7 @@ GameObject:
   - component: {fileID: 1422862695}
   - component: {fileID: 1422862694}
   - component: {fileID: 1422862699}
+  - component: {fileID: 1422862700}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Untagged
@@ -5408,6 +5409,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1422862700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422862693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af57ca18fca9e4245ba45b0dfe15aa57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!43 &1448240377
 Mesh:
   m_ObjectHideFlags: 0
@@ -8933,6 +8949,7 @@ MonoBehaviour:
   maxRotation: 45
   inputLerp: 0.005
   inertiaLerp: 0.0015
+  impactLerp: 1
   maxInertia: 0.02
   inertia: 0
   onBalanceLost:
