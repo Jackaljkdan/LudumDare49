@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepMovement: 0.28
-  _speed: 0.99
+  _speed: 2
   moving: 0
   isNextStepR: 1
 --- !u!43 &1659275332
