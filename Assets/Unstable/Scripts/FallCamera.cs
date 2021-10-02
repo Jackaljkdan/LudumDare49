@@ -19,7 +19,9 @@ namespace Unstable
         #endregion
 
         [Inject]
-        private void Inject(Balance balance)
+        private Balance balance = null;
+
+        private void Start()
         {
             balance.onBalanceLost.AddListener(OnBalanceLost);
         }
