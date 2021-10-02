@@ -15,6 +15,10 @@ namespace Unstable
 
         public float stepMovement = 0.28f;
 
+        [Range(0f, 10)]
+        [SerializeField]
+        private float _speed = 1;
+
         [Header("Runtime")]
 
         [SerializeField]
@@ -32,49 +36,58 @@ namespace Unstable
             OnBalanceLost();
         }
 
+        private void OnValidate()
+        {
+            Speed = _speed;
+        }
+
         #endregion
 
         private Tween stepTween;
 
+        public float Speed
+        {
+            get => GetComponent<Animator>().speed;
+            set => GetComponent<Animator>().speed = value;
+        }
+
         [Inject]
         private Balance balance = null;
 
+
         private void Start()
         {
+            Speed = _speed;
             balance.onBalanceLost.AddListener(OnBalanceLost);
         }
 
         private void Update()
         {
             if (moving)
+            {
+                transform.position = transform.position + Vector3.forward * stepMovement * Time.deltaTime * Speed;
                 return;
+            }
 
-            if (UnityEngine.Input.GetKey(KeyCode.W))
-                StepForward();
+            BeginMoving();
         }
 
-        public void StepForward()
+        public void BeginMoving()
         {
             var animator = GetComponent<Animator>();
 
             string animName = isNextStepR ? "WalkR" : "WalkL";
             animator.Play(animName, 0, 0);
 
-            stepTween = transform.DOMove(transform.position + Vector3.forward * stepMovement, duration: 1 / animator.speed)
-                    .SetEase(Ease.Linear);
-
-            stepTween.onComplete += OnStepCompleted;
-
             isNextStepR = !isNextStepR;
 
             moving = true;
         }
 
-        private void OnStepCompleted()
+        public void OnStepCompleted()
         {
             moving = false;
         }
-
         
         private void OnBalanceLost()
         {
