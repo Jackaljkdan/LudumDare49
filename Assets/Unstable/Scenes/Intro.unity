@@ -5310,9 +5310,9 @@ MonoBehaviour:
   balance: 0
   randomAmount: 0.01
   maxRotation: 45
-  inputLerp: 0.01
-  inertiaLerp: 0.003
-  maxInertia: 0.1
+  inputLerp: 0.005
+  inertiaLerp: 0.0015
+  maxInertia: 0.02
   inertia: 0
   onBalanceLost:
     m_PersistentCalls:
