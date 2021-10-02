@@ -12,7 +12,7 @@ namespace Unstable
     {
         #region Inspector
 
-        public float maxPlayerDistanceSquared = 25;
+        public float maxPlayerDistance = 6;
 
         public float turnLerp = 0.2f;
 
@@ -25,6 +25,8 @@ namespace Unstable
         public float yOffset = 0.5f;
 
         public float playerSpeedMultiplier = 0;
+
+        public float playerDistanceMultiplier = 1;
 
         public Rigidbody projectilePrefab;
 
@@ -52,15 +54,16 @@ namespace Unstable
 
         private void Update()
         {
-            Vector3 offset = player.transform.TransformVector(Vector3.up) * yOffset;
+            float distance = (player.transform.position - transform.position).magnitude;
 
-            Vector3 targetPosition = player.transform.position + offset + player.transform.forward * player.Speed * playerSpeedMultiplier;
-
-            Vector3 toTarget = targetPosition - transform.position;
-
-            if (toTarget.sqrMagnitude > maxPlayerDistanceSquared)
+            if (distance > maxPlayerDistance)
                 return;
 
+            Vector3 offset = player.transform.TransformVector(Vector3.up) * yOffset;
+
+            Vector3 targetPosition = player.transform.position + offset + player.transform.forward * player.Speed * playerSpeedMultiplier * distance * playerDistanceMultiplier;
+
+            Vector3 toTarget = targetPosition - transform.position;
             Vector3 directionToTarget = toTarget.normalized;
 
             Vector3 updatedForward = Vector3.Lerp(transform.forward, directionToTarget, turnLerp);
