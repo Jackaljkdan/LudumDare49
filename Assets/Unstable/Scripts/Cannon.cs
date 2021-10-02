@@ -28,10 +28,14 @@ namespace Unstable
 
         public Rigidbody projectilePrefab;
 
+
         [Header("Internals")]
 
         [SerializeField]
         private Transform projectileAnchor = null;
+
+        [SerializeField]
+        private ParticleSystem particles = null;
 
         #endregion
 
@@ -43,6 +47,7 @@ namespace Unstable
         private void Start()
         {
             lastShot = DateTime.Now - TimeSpan.FromSeconds(secondsBetweenShots + 1);
+            particles.Stop();
         }
 
         private void Update()
@@ -71,6 +76,8 @@ namespace Unstable
                 var projectile = Instantiate(projectilePrefab, projectileAnchor.position, projectileAnchor.rotation, transform.parent);
                 projectile.AddForce(projectileAnchor.forward * force, ForceMode.Impulse);
                 lastShot = DateTime.Now;
+                particles.Stop();
+                particles.Play();
             }
         }
     }
