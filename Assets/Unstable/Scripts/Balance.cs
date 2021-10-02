@@ -49,13 +49,13 @@ namespace Unstable
             rot.z = balance * maxRotation;
             transform.localEulerAngles = rot;
 
-            balance = Mathf.Clamp(balance, -1, 1);
+            //balance = Mathf.Clamp(balance, -1, 1);
 
-            //if (balance >= 1 || balance <= -1)
-            //{
-            //    enabled = false;
-            //    onBalanceLost.Invoke();
-            //}
+            if (balance >= 1 || balance <= -1)
+            {
+                enabled = false;
+                onBalanceLost.Invoke();
+            }
         }
     }
     

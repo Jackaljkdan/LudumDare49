@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
 
 namespace Unstable
 {
@@ -22,9 +23,26 @@ namespace Unstable
         [SerializeField]
         private bool isNextStepR = true;
 
+        [ContextMenu("Lose balance")]
+        private void InspectorLoseBalance()
+        {
+            if (!Application.isPlaying)
+                return;
+
+            OnBalanceLost();
+        }
+
         #endregion
 
         private Tween stepTween;
+
+        [Inject]
+        private Balance balance = null;
+
+        private void Start()
+        {
+            balance.onBalanceLost.AddListener(OnBalanceLost);
+        }
 
         private void Update()
         {
@@ -55,6 +73,19 @@ namespace Unstable
         private void OnStepCompleted()
         {
             moving = false;
+        }
+
+        
+        private void OnBalanceLost()
+        {
+            if (stepTween != null && stepTween.active)
+                stepTween.Kill();
+
+            enabled = false;
+            GetComponent<Animator>().enabled = false;
+
+            foreach (var rb in GetComponentsInChildren<Rigidbody>())
+                rb.constraints = RigidbodyConstraints.None;
         }
     }
     
