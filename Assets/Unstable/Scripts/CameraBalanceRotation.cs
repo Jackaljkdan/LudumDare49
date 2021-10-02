@@ -16,6 +16,8 @@ namespace Unstable
 
         public float lerp = 0.2f;
 
+        public bool upsideDown = false;
+
         #endregion
 
         [Inject]
@@ -23,8 +25,13 @@ namespace Unstable
 
         private void LateUpdate()
         {
+            float target = balanceRotationMultiplier * balance.balance * balance.maxRotation;
+
+            if (upsideDown)
+                target = target + 180;
+
             var rot = transform.localEulerAngles;
-            rot.z = Mathf.LerpAngle(rot.z, balanceRotationMultiplier * balance.balance * balance.maxRotation, lerp);
+            rot.z = Mathf.LerpAngle(rot.z, target, lerp);
             transform.localEulerAngles = rot;
         }
     }
