@@ -14,8 +14,6 @@ namespace Unstable
         [Range(-1, 1)]
         public float balance;
 
-        public float randomAmount = 0.01f;
-
         public float maxRotation = 45;
 
         public float inputLerp = 0.2f;
@@ -37,7 +35,13 @@ namespace Unstable
             if (UnityEngine.Input.GetKey(KeyCode.D))
                 inertia = Mathf.Lerp(inertia, -1, inputLerp);
 
-            float sign = Mathf.Sign(balance);
+            float sign;
+
+            if (Mathf.Approximately(balance, 0))
+                sign = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
+            else
+                sign = Mathf.Sign(balance);
+
             float inertiaTarget = sign;
             inertia = Mathf.Lerp(inertia, inertiaTarget, inertiaLerp);
 
