@@ -27,10 +27,10 @@ Transform:
   m_LocalPosition: {x: 1.12, y: 0.663, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6122988710146308301}
   - {fileID: 6122988709848505269}
-  - {fileID: 6122988709011434794}
+  - {fileID: 6122988710146308301}
   - {fileID: 6122988709230748269}
+  - {fileID: 6122988709011434794}
   - {fileID: 6902097212272084659}
   - {fileID: 6902097210763163856}
   m_Father: {fileID: 0}
@@ -68,7 +68,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6122988708324074457}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &6122988709011434797
 MonoBehaviour:
@@ -992,7 +992,7 @@ MeshCollider:
   m_GameObject: {fileID: 6122988709011434961}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -1029,7 +1029,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6122988708324074457}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &6122988709230748265
 MonoBehaviour:
@@ -2921,7 +2921,7 @@ MeshCollider:
   m_GameObject: {fileID: 6122988709230748268}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -2958,7 +2958,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 6122988708324074457}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &6122988709848505268
 MonoBehaviour:
@@ -3884,7 +3884,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &6122988710146308336
@@ -3919,7 +3919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6122988708324074457}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &6122988710146308300
 MonoBehaviour:
@@ -5811,7 +5811,7 @@ MeshCollider:
   m_GameObject: {fileID: 6122988710146308336}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
