@@ -1,3 +1,4 @@
+using JK.Sounds;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -81,6 +82,9 @@ namespace Unstable
                 lastShot = DateTime.Now;
                 particles.Stop();
                 particles.Play();
+
+                if (projectileAnchor.TryGetComponent(out RandomClipsPlayer clips))
+                    clips.PlayRandom();
             }
         }
     }
