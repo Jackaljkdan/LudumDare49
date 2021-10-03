@@ -27,6 +27,10 @@ namespace Unstable
 
         public float playerDistanceMultiplier = 1;
 
+        public float dotToDeactivate = 0.1f;
+
+        public float deactivationDelaySeconds = 2f;
+
         public Rigidbody projectilePrefab;
 
 
@@ -84,6 +88,19 @@ namespace Unstable
                 if (projectileAnchor.TryGetComponent(out RandomClipsPlayer clips))
                     clips.PlayRandom();
             }
+
+            dot = Vector3.Dot(updatedForward, player.transform.forward);
+
+            if (dot >= dotToDeactivate)
+            {
+                enabled = false;
+                Invoke(nameof(Deactivate), deactivationDelaySeconds);
+            }
+        }
+
+        private void Deactivate()
+        {
+            gameObject.SetActive(false);
         }
     }
     
