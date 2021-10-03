@@ -6311,7 +6311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54777a89f4c53874881e21d9edc0c952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 2
+  seconds: 4
   bodyPrefab: {fileID: 7627858604266698966, guid: a796832f33548844883e6ebc78888712,
     type: 3}
   body: {fileID: 1141334151}

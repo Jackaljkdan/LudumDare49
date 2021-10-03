@@ -1,3 +1,4 @@
+using JK.Sounds;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Unstable
 
         public Transform upperBody;
         public Transform torso;
+        public RandomClipsPlayer fallingSounds;
 
         public UnityEvent onStepComplete = new UnityEvent();
 

@@ -130,6 +130,7 @@ namespace Unstable
 
             enabled = false;
             body.GetComponent<Animator>().enabled = false;
+            body.fallingSounds.PlayRandom();
 
             foreach (var rb in GetComponentsInChildren<Rigidbody>())
                 rb.constraints = RigidbodyConstraints.None;
