@@ -16,10 +16,12 @@ namespace Unstable
 
         public Transform target;
 
+        public UnityEvent onTeleport = new UnityEvent();
+
         #endregion
 
         [Inject]
-        private Player player = null;
+        protected Player player = null;
 
         [Inject]
         private Balance balance = null;
@@ -42,9 +44,12 @@ namespace Unstable
             yield return new WaitForSeconds(0.5f);
 
             player.transform.position = target.position;
+            player.transform.rotation = target.rotation;
 
             balance.balance = 0;
             balance.enabled = true;
+
+            onTeleport.Invoke();
         }
     }
     

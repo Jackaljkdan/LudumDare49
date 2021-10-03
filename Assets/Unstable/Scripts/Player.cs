@@ -34,10 +34,8 @@ namespace Unstable
         [SerializeField]
         private bool isNextStepR = true;
 
-        [SerializeField]
-        private Checkpoint prevCheckpoint;
-        [SerializeField]
-        private Checkpoint nextCheckpoint;
+        public Checkpoint prevCheckpoint;
+        public Checkpoint nextCheckpoint;
 
         [ContextMenu("Lose balance")]
         private void InspectorLoseBalance()
