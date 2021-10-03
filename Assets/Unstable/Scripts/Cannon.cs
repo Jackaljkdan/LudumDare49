@@ -69,7 +69,7 @@ namespace Unstable
             if (distance > maxPlayerDistance)
                 return;
 
-            Vector3 offset = player.transform.TransformVector(Vector3.up) * distance * playerDistanceMultiplier;
+            Vector3 offset = Vector3.up * distance * playerDistanceMultiplier;
 
             Vector3 targetPosition = player.transform.position + offset + player.transform.forward * player.Speed * playerSpeedMultiplier;
 
