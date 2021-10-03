@@ -13,6 +13,8 @@ namespace Unstable
 
         public Checkpoint next;
 
+        public bool canSave = true;
+
         #endregion
 
         private void OnDrawGizmos()

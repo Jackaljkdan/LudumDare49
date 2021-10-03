@@ -64,23 +64,23 @@ namespace Unstable
         }
 
         private Vector3 initialPosition;
-
+        private Quaternion initialRotation;
 
         [Inject]
         private Balance balance = null;
-        
-        [Inject]
-        private void Inject([Inject(Id = "first")] Checkpoint firstCheckpoint)
-        {
-            nextCheckpoint = firstCheckpoint;
-        }
+
+        [Inject(Id = "first")]
+        Checkpoint firstCheckpoint = null;
 
         private void Start()
         {
             Speed = _speed;
             initialPosition = transform.position;
+            initialRotation = transform.rotation;
             balance.onBalanceLost.AddListener(OnBalanceLost);
             body.onStepComplete.AddListener(OnStepCompleted);
+
+            nextCheckpoint = firstCheckpoint;
 
             if (dbgStart != null && Application.isEditor)
             {
@@ -112,7 +112,9 @@ namespace Unstable
 
                 if (nextCheckpoint != null && (transform.position - nextCheckpoint.transform.position).sqrMagnitude < 0.0001f)
                 {
-                    prevCheckpoint = nextCheckpoint;
+                    if (nextCheckpoint.canSave)
+                        prevCheckpoint = nextCheckpoint;
+
                     nextCheckpoint = nextCheckpoint.next;
                 }
 
@@ -173,9 +175,17 @@ namespace Unstable
         public void PlaceAtLastCheckpoint()
         {
             if (prevCheckpoint == null)
+            {
                 transform.position = initialPosition;
+                transform.rotation = initialRotation;
+                nextCheckpoint = firstCheckpoint;
+            }
             else
+            {
                 transform.position = prevCheckpoint.transform.position;
+                transform.rotation = prevCheckpoint.transform.rotation;
+                nextCheckpoint = prevCheckpoint.next;
+            }
         }
     }
     
