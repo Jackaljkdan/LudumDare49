@@ -14,6 +14,7 @@ namespace Unstable
         #region Inspector
 
         public float seconds = 2;
+        public float interferenceSeconds = 0.5f;
 
         [SerializeField]
         private PlayerBody bodyPrefab = null;
@@ -25,6 +26,9 @@ namespace Unstable
 
         [Inject]
         private Balance balance = null;
+
+        [Inject]
+        private Interference interference = null;
 
         private void Start()
         {
@@ -38,7 +42,9 @@ namespace Unstable
 
         private IEnumerator RespawnCoroutine()
         {
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(seconds - interferenceSeconds);
+            interference.StartInerferenceAndStopAfterDelay(interferenceSeconds);
+            yield return new WaitForSeconds(interferenceSeconds);
 
             PlayerBody newBody = Instantiate(bodyPrefab, body.parent);
 
