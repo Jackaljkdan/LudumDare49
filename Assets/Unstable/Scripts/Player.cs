@@ -23,6 +23,9 @@ namespace Unstable
         [SerializeField]
         private float _speed = 1;
 
+        [SerializeField]
+        private Checkpoint dbgStart = null;
+
         [Header("Runtime")]
 
         [SerializeField]
@@ -78,6 +81,13 @@ namespace Unstable
             initialPosition = transform.position;
             balance.onBalanceLost.AddListener(OnBalanceLost);
             body.onStepComplete.AddListener(OnStepCompleted);
+
+            if (dbgStart != null && Application.isEditor)
+            {
+                transform.position = dbgStart.transform.position;
+                nextCheckpoint = dbgStart;
+                prevCheckpoint = dbgStart;
+            }
         }
 
         private void Update()
