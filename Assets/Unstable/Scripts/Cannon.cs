@@ -23,8 +23,6 @@ namespace Unstable
 
         public float force = 100;
 
-        public float yOffset = 0.5f;
-
         public float playerSpeedMultiplier = 0;
 
         public float playerDistanceMultiplier = 1;
@@ -60,9 +58,9 @@ namespace Unstable
             if (distance > maxPlayerDistance)
                 return;
 
-            Vector3 offset = player.transform.TransformVector(Vector3.up) * yOffset;
+            Vector3 offset = player.transform.TransformVector(Vector3.up) * distance * playerDistanceMultiplier;
 
-            Vector3 targetPosition = player.transform.position + offset + player.transform.forward * player.Speed * playerSpeedMultiplier * distance * playerDistanceMultiplier;
+            Vector3 targetPosition = player.transform.position + offset + player.transform.forward * player.Speed * playerSpeedMultiplier;
 
             Vector3 toTarget = targetPosition - transform.position;
             Vector3 directionToTarget = toTarget.normalized;

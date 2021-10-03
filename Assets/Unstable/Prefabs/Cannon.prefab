@@ -192,14 +192,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878cf53a65c09fb4f9baad9d73d9d8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerDistance: 6
+  maxPlayerDistance: 10
   turnLerp: 0.2
   dotToShoot: 0.9999
   secondsBetweenShots: 4
   force: 20
-  yOffset: 0.3
-  playerSpeedMultiplier: 0.2
-  playerDistanceMultiplier: 0.1
+  playerSpeedMultiplier: 0.14
+  playerDistanceMultiplier: 0.075
   projectilePrefab: {fileID: 8638201353147792526, guid: 4edc1c7f019d26f4cb763a3eadc9463d,
     type: 3}
   projectileAnchor: {fileID: 3604893238011970645}

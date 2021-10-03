@@ -98,7 +98,10 @@ namespace Unstable
                 transform.position = transform.position + movement * stepMovement * Time.deltaTime * speed;
 
                 if (nextCheckpoint != null && (transform.position - nextCheckpoint.transform.position).sqrMagnitude < 0.0001f)
+                {
+                    prevCheckpoint = nextCheckpoint;
                     nextCheckpoint = nextCheckpoint.next;
+                }
 
                 return;
             }
