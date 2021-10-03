@@ -12,8 +12,6 @@ namespace Unstable
     {
         #region Inspector
 
-        public Transform target;
-
         public float lerp = 0.2f;
 
         #endregion
@@ -21,23 +19,34 @@ namespace Unstable
         [Inject]
         private Balance balance = null;
 
+        [Inject]
+        private Player player = null;
+
+        private Quaternion initialLocalRotation;
+
         private void Start()
         {
+            initialLocalRotation = transform.localRotation;
+
             balance.onBalanceLost.AddListener(OnBalanceLost);
+            balance.onRestored.AddListener(OnBalanceRestored);
+            enabled = false;
+        }
+
+        private void Update()
+        {
+            transform.forward = Vector3.Lerp(transform.forward, player.body.torso.transform.position - transform.position, lerp);
         }
 
         private void OnBalanceLost()
         {
-            StartCoroutine(LookAtTargetCoroutine());
+            enabled = true;
         }
 
-        private IEnumerator LookAtTargetCoroutine()
+        private void OnBalanceRestored()
         {
-            while (true)
-            {
-                transform.forward = Vector3.Lerp(transform.forward, target.position - transform.position, lerp);
-                yield return null;
-            }
+            enabled = false;
+            transform.localRotation = initialLocalRotation;
         }
     }
     

@@ -17,7 +17,7 @@ namespace Unstable
         #endregion
 
         [Inject]
-        private Balance balance = null;
+        public Balance balance = null;
 
         private void Start()
         {

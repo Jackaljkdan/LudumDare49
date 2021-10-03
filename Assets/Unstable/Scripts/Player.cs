@@ -17,6 +17,8 @@ namespace Unstable
 
         public float rotationLerp = 0.1f;
 
+        public PlayerBody body;
+
         [Range(0f, 10)]
         [SerializeField]
         private float _speed = 1;
@@ -49,10 +51,13 @@ namespace Unstable
 
         public float Speed
         {
-            get => GetComponent<Animator>().speed;
-            set => GetComponent<Animator>().speed = value;
+            get => body.GetComponent<Animator>().speed;
+            set => body.GetComponent<Animator>().speed = value;
         }
 
+        private Vector3 initialPosition;
+
+        private Checkpoint prevCheckpoint;
         private Checkpoint nextCheckpoint;
 
         [Inject]
@@ -67,7 +72,9 @@ namespace Unstable
         private void Start()
         {
             Speed = _speed;
+            initialPosition = transform.position;
             balance.onBalanceLost.AddListener(OnBalanceLost);
+            body.onStepComplete.AddListener(OnStepCompleted);
         }
 
         private void Update()
@@ -101,7 +108,7 @@ namespace Unstable
 
         public void BeginMoving()
         {
-            var animator = GetComponent<Animator>();
+            var animator = body.GetComponent<Animator>();
 
             string animName = isNextStepR ? "WalkR" : "WalkL";
             animator.Play(animName, 0, 0);
@@ -122,10 +129,36 @@ namespace Unstable
                 stepTween.Kill();
 
             enabled = false;
-            GetComponent<Animator>().enabled = false;
+            body.GetComponent<Animator>().enabled = false;
 
             foreach (var rb in GetComponentsInChildren<Rigidbody>())
                 rb.constraints = RigidbodyConstraints.None;
+
+            moving = false;
+        }
+
+        public void Respawn(PlayerBody newBody)
+        {
+            body = newBody;
+            enabled = true;
+
+            body.onStepComplete.AddListener(OnStepCompleted);
+
+            var animator = body.GetComponent<Animator>();
+            animator.enabled = true;
+            animator.Play("Idle");
+
+            Speed = _speed;
+
+            PlaceAtLastCheckpoint();
+        }
+
+        public void PlaceAtLastCheckpoint()
+        {
+            if (prevCheckpoint == null)
+                transform.position = initialPosition;
+            else
+                transform.position = prevCheckpoint.transform.position;
         }
     }
     

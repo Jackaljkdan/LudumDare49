@@ -11,6 +11,8 @@ namespace Unstable
     {
         #region Inspector
 
+        public Transform target;
+
         [Range(-1, 1)]
         public float balance;
 
@@ -26,6 +28,7 @@ namespace Unstable
         public float inertia;
 
         public UnityEvent onBalanceLost = new UnityEvent();
+        public UnityEvent onRestored = new UnityEvent();
 
         #endregion
 
@@ -57,9 +60,9 @@ namespace Unstable
 
             balance += inertia;
 
-            var rot = transform.localEulerAngles;
+            var rot = target.localEulerAngles;
             rot.z = balance * maxRotation;
-            transform.localEulerAngles = rot;
+            target.localEulerAngles = rot;
 
             //balance = Mathf.Clamp(balance, -1, 1);
 
@@ -72,9 +75,18 @@ namespace Unstable
 
         private void OnHit(Collider hit, Collision collision)
         {
-            float hitDot = Vector3.Dot(transform.right, collision.impulse.normalized);
+            float hitDot = Vector3.Dot(target.right, collision.impulse.normalized);
             balance = balance + hitDot * hitMultiplier;
             inertia = Mathf.Lerp(inertia, Mathf.Sign(hitDot), impactLerp);
+        }
+
+        public void Respawn(PlayerBody newBody)
+        {
+            target = newBody.upperBody;
+            balance = 0;
+            inertia = 0;
+            enabled = true;
+            onRestored.Invoke();
         }
     }
     
