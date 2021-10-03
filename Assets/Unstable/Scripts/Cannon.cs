@@ -77,7 +77,7 @@ namespace Unstable
             Vector3 directionToTarget = toTarget.normalized;
 
             Vector3 updatedForward = Vector3.Lerp(transform.forward, directionToTarget, turnLerp);
-            transform.forward = updatedForward;
+            transform.rotation = Quaternion.LookRotation(updatedForward, transform.TransformVector(Vector3.up));
 
             if ((DateTime.Now - lastShot).TotalSeconds < secondsBetweenShots)
                 return;
