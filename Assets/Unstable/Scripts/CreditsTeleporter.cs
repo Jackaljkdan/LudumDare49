@@ -1,3 +1,4 @@
+using JK.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,12 @@ namespace Unstable
         [Inject(Id = "credits")]
         private Checkpoint checkpoint = null;
 
+        [Inject(Id = "sun")]
+        private Light sun = null;
+
+        [Inject]
+        private Worker worker = null;
+
         private void Start()
         {
             onTeleport.AddListener(OnTeleported);
@@ -38,6 +45,22 @@ namespace Unstable
 
             player.prevCheckpoint = checkpoint;
             player.nextCheckpoint = checkpoint.next;
+
+            worker.StartCoroutine(RotateSunCoroutine());
+        }
+
+        private IEnumerator RotateSunCoroutine()
+        {
+            while (true)
+            {
+                if (sun == null)
+                    yield break;
+
+                Vector3 euler = sun.transform.eulerAngles;
+                euler.y += Time.deltaTime * 5;
+                sun.transform.eulerAngles = euler;
+                yield return null;
+            }
         }
     }
     

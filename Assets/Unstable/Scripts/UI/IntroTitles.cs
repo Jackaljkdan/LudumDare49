@@ -28,7 +28,9 @@ namespace Unstable.UI
         private void Inject()
         {
             music.playOnAwake = false;
-            music.Stop();
+
+            if (Mathf.Approximately(music.time, 0))
+                music.Stop();
         }
 
         private void Update()
@@ -45,7 +47,8 @@ namespace Unstable.UI
             yield return GetComponent<CanvasGroup>().DOFade(0, duration: fadeSeconds).WaitForCompletion();
             gameObject.SetActive(false);
 
-            music.Play();
+            if (!music.isPlaying)
+                music.Play();
 
             onFaded.Invoke();
         }
