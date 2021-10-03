@@ -58,6 +58,9 @@ namespace Unstable
             yield return new WaitForSeconds(5);
             yield return balanceCanvasGroup.DOFade(0, duration: 0.3f).WaitForCompletion();
             balanceCanvasGroup.gameObject.SetActive(false);
+
+            if (player.TryGetComponent(out Accelerator accelerator))
+                accelerator.enabled = true;
         }
     }
     

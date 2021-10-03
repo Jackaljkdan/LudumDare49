@@ -13,54 +13,42 @@ namespace Unstable
     {
         #region Inspector
 
-        public float maxSpeed = 6;
-        public float minSpeed = 0.6f;
+        public float minInertia = 0.02f;
+        public float maxInertia = 0.06f;
 
-        public float inertiaLerp = 0.05f;
-        public float inputLerp = 0.1f;
+        public float overSeconds = 10;
 
-        public float maxInertia = 0.2f;
-
-        public float balanceMultiplier = 0.99f;
+        [SerializeField]
+        private float startTime = 0;
 
         #endregion
-
-        private float inertia;
-
-        private float originalBalanceInertiaLerp;
 
         [Inject]
         private Balance balance = null;
 
         private void Start()
         {
-            originalBalanceInertiaLerp = balance.inertiaLerp;
+            balance.onRestored.AddListener(OnBalanceRestored);
+            balance.onBalanceLost.AddListener(OnBalanceLost);
+            startTime = Time.time;
         }
 
         private void Update()
         {
-            if (UnityEngine.Input.GetKey(KeyCode.W))
-                inertia = Mathf.Lerp(inertia, 1, inputLerp);
+            float t = Mathf.Min(1, (Time.time - startTime) / overSeconds);
+            balance.maxInertia = Mathf.Lerp(minInertia, maxInertia, t);
+        }
 
-            if (UnityEngine.Input.GetKey(KeyCode.S))
-                inertia = Mathf.Lerp(inertia, -1, inputLerp);
+        private void OnBalanceRestored()
+        {
+            startTime = Time.time;
+            balance.maxInertia = minInertia;
+            enabled = true;
+        }
 
-            var player = GetComponent<Player>();
-            float speed = player.Speed;
-
-            float inertiaTarget = 1;
-            inertia = Mathf.Lerp(inertia, inertiaTarget, inertiaLerp);
-
-            inertia = Mathf.Clamp(inertia, -maxInertia, maxInertia);
-
-            float updatedSpeed = Mathf.Clamp(speed + inertia, minSpeed, maxSpeed);
-            player.Speed = updatedSpeed;
-
-            balance.inertiaLerp = Mathf.Lerp(
-                originalBalanceInertiaLerp,
-                balance.inputLerp * balanceMultiplier,
-                Math.Max(0, updatedSpeed - 1) / (maxSpeed - 1)
-            );
+        private void OnBalanceLost()
+        {
+            enabled = false;
         }
     }
     
