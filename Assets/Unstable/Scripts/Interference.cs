@@ -14,6 +14,8 @@ namespace Unstable
     {
         #region Inspector
 
+        public bool startsOff = true;
+
         public float fadeSeconds = 0.3f;
 
         public UnityEvent onStart = new UnityEvent();
@@ -24,7 +26,7 @@ namespace Unstable
         [Inject]
         private void Inject()
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(!startsOff);
         }
 
         public void StartInterference()
