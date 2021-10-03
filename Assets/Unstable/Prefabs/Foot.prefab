@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 4081532792489765433}
   - component: {fileID: 4081532792489765430}
   - component: {fileID: 4081532792489765432}
+  - component: {fileID: 1772002697292789055}
   m_Layer: 0
-  m_Name: FootL
+  m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +342,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0.025, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.836, z: 0.28}
+  m_ConnectedAnchor: {x: 0, y: -0.836, z: 0.14}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -387,3 +388,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402569b0d8327f14ba8ba34e73441d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  balance: {fileID: 0}
+--- !u!114 &1772002697292789055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081532792489765424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9254902, g: 0.7372549, b: 0.7058824, a: 1}
+  - {r: 0.3301887, g: 0.19001426, b: 0.16665184, a: 1}

@@ -47,6 +47,7 @@ namespace Unstable
             yield return new WaitForSeconds(interferenceSeconds);
 
             PlayerBody newBody = Instantiate(bodyPrefab, body.parent);
+            newBody.RandomizeColors();
 
             foreach (var foot in newBody.GetComponentsInChildren<Foot>())
                 foot.balance = balance;

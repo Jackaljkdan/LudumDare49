@@ -6312,6 +6312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 4
+  interferenceSeconds: 0.5
   bodyPrefab: {fileID: 7627858604266698966, guid: a796832f33548844883e6ebc78888712,
     type: 3}
   body: {fileID: 1141334151}
@@ -11061,6 +11062,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1608677467}
+    - target: {fileID: 7627858606217607993, guid: a796832f33548844883e6ebc78888712,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 7627858606217607994, guid: a796832f33548844883e6ebc78888712,
         type: 3}
       propertyPath: m_Mesh

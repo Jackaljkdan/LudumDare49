@@ -197,6 +197,7 @@ MonoBehaviour:
   upperBody: {fileID: 7627858605037598538}
   torso: {fileID: 7627858604547207476}
   fallingSounds: {fileID: 1015814591119040}
+  colors: []
   onStepComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -360,6 +361,7 @@ GameObject:
   - component: {fileID: 7627858604420368303}
   - component: {fileID: 7627858604420368296}
   - component: {fileID: 7627858604420368299}
+  - component: {fileID: 7906183239021196418}
   m_Layer: 0
   m_Name: HandR
   m_TagString: Untagged
@@ -719,6 +721,21 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7906183239021196418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627858604420368305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9254902, g: 0.7372549, b: 0.7058824, a: 1}
+  - {r: 0.3301887, g: 0.19001426, b: 0.16665184, a: 1}
 --- !u!1 &7627858604475371954
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +751,7 @@ GameObject:
   - component: {fileID: 7627858604475371955}
   - component: {fileID: 7627858604475371949}
   - component: {fileID: 7627858604475371948}
+  - component: {fileID: 7281948323539476950}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -1444,6 +1462,21 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7281948323539476950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627858604475371954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9254902, g: 0.7372549, b: 0.7058824, a: 1}
+  - {r: 0.3301887, g: 0.19001426, b: 0.16665184, a: 1}
 --- !u!1 &7627858604547207483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1492,7 @@ GameObject:
   - component: {fileID: 7627858604547207480}
   - component: {fileID: 7627858604547207477}
   - component: {fileID: 7627858604547207474}
+  - component: {fileID: 1547725516163049938}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Untagged
@@ -2088,6 +2122,21 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1547725516163049938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627858604547207483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9254902, g: 0.7372549, b: 0.7058824, a: 1}
+  - {r: 0.3301887, g: 0.19001426, b: 0.16665184, a: 1}
 --- !u!1 &7627858604592896951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2152,7 @@ GameObject:
   - component: {fileID: 7627858604592896949}
   - component: {fileID: 7627858604592896942}
   - component: {fileID: 7627858604592896945}
+  - component: {fileID: 1221419598965741591}
   m_Layer: 0
   m_Name: HandL
   m_TagString: Untagged
@@ -2462,6 +2512,21 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1221419598965741591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627858604592896951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9254902, g: 0.7372549, b: 0.7058824, a: 1}
+  - {r: 0.3301887, g: 0.19001426, b: 0.16665184, a: 1}
 --- !u!1 &7627858604950091306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2542,7 @@ GameObject:
   - component: {fileID: 7627858604950091304}
   - component: {fileID: 7627858604950091301}
   - component: {fileID: 7627858604950091300}
+  - component: {fileID: 3305807663920732132}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -2836,6 +2902,22 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3305807663920732132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627858604950091306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729dd528eeda58741ba19cbf5f85abc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.8962264, g: 0.12803234, b: 0, a: 1}
+  - {r: 1, g: 0.81277317, b: 0, a: 1}
 --- !u!1 &7627858605037598541
 GameObject:
   m_ObjectHideFlags: 0
