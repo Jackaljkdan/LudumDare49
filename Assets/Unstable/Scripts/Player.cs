@@ -31,6 +31,11 @@ namespace Unstable
         [SerializeField]
         private bool isNextStepR = true;
 
+        [SerializeField]
+        private Checkpoint prevCheckpoint;
+        [SerializeField]
+        private Checkpoint nextCheckpoint;
+
         [ContextMenu("Lose balance")]
         private void InspectorLoseBalance()
         {
@@ -57,8 +62,6 @@ namespace Unstable
 
         private Vector3 initialPosition;
 
-        private Checkpoint prevCheckpoint;
-        private Checkpoint nextCheckpoint;
 
         [Inject]
         private Balance balance = null;
