@@ -57,7 +57,14 @@ namespace Unstable
 
         private void Update()
         {
-            float distance = (player.transform.position - transform.position).magnitude;
+            Vector3 distanceVector = player.transform.position - transform.position;
+
+            float dot = Vector3.Dot(distanceVector.normalized, player.transform.forward);
+
+            if (dot >= dotToDeactivate)
+                return;
+
+            float distance = distanceVector.magnitude;
 
             if (distance > maxPlayerDistance)
                 return;
@@ -75,7 +82,7 @@ namespace Unstable
             if ((DateTime.Now - lastShot).TotalSeconds < secondsBetweenShots)
                 return;
 
-            float dot = Vector3.Dot(updatedForward, directionToTarget);
+            dot = Vector3.Dot(updatedForward, directionToTarget);
 
             if (dot >= dotToShoot)
             {
@@ -91,14 +98,6 @@ namespace Unstable
 
                 if (projectileAnchor.TryGetComponent(out RandomClipsPlayer clips))
                     clips.PlayRandom();
-            }
-
-            dot = Vector3.Dot(updatedForward, player.transform.forward);
-
-            if (dot >= dotToDeactivate)
-            {
-                enabled = false;
-                Invoke(nameof(Deactivate), deactivationDelaySeconds);
             }
         }
 
