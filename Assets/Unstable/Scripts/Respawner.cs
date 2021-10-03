@@ -47,6 +47,9 @@ namespace Unstable
 
             GetComponent<Player>().Respawn(newBody);
             balance.Respawn(newBody);
+
+            Destroy(body.gameObject);
+            body = newBody.transform;
         }
     }
     
