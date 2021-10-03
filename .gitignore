@@ -3,11 +3,10 @@ Assets/URP*
 /Builds/
 /Library/
 /Logs/
-/Music/
 /obj/
 /Temp/
 Exported/
-Imported/
+Rendered/
 SceneDependencyCache*
 .vs/
 .vsconfig
