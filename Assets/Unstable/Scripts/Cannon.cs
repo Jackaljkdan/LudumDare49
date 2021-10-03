@@ -81,6 +81,10 @@ namespace Unstable
             {
                 var projectile = Instantiate(projectilePrefab, projectileAnchor.position, projectileAnchor.rotation, transform.parent);
                 projectile.AddForce(projectileAnchor.forward * force, ForceMode.Impulse);
+
+                if (projectile.TryGetComponent(out MaterialColorRandomizer randomizer))
+                    randomizer.RandomizeColor();
+
                 lastShot = DateTime.Now;
                 particles.Stop();
                 particles.Play();
