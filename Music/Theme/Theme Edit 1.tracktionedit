@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <EDIT appVersion="Waveform 11.5.18" projectID="96e0ce/182463f" creationTime="1633202594083"
-      lastSignificantChange="17c42fcac16" modifiedBy="Dani">
-  <TRANSPORT endToEnd="1" position="112.92" scrubInterval="0.4618409397406428"
+      lastSignificantChange="17c4ce5eb92" modifiedBy="Dani">
+  <TRANSPORT endToEnd="1" position="70.39" scrubInterval="0.4618409397406433"
              loopPoint1="8.0" loopPoint2="8.0"/>
   <MACROPARAMETERS id="1001"/>
   <TEMPOSEQUENCE>
@@ -14,7 +14,7 @@
   </PITCHSEQUENCE>
   <VIDEO/>
   <AUTOMAPXML/>
-  <CLICKTRACK level="0.6025595664978027" active="1"/>
+  <CLICKTRACK level="0.6025595664978027" active="0"/>
   <ID3VORBISMETADATA trackNumber="1" date="2021"/>
   <MASTERVOLUME>
     <PLUGIN type="volume" volume="0.6376281380653381" id="1003" enabled="1">
@@ -28,7 +28,7 @@
   <INPUTDEVICES>
     <INPUTDEVICE name="Virtual"/>
     <INPUTDEVICE name="Input 1">
-      <INPUTDEVICEDESTINATION targetTrack="1077" targetIndex="0" armed="0"/>
+      <INPUTDEVICEDESTINATION targetTrack="1038" targetIndex="0"/>
     </INPUTDEVICE>
     <INPUTDEVICE name="Input 2"/>
   </INPUTDEVICES>
@@ -37,8 +37,8 @@
   <CONTROLLERMAPPINGS/>
   <VIEWSTATE minimalTransportBar="1" hiddenClips="" lockedClips="" chordTrackVisible="0"
              masterTrackVisible="0" arrangerTrackVisible="0" disabledSearchLibraries=""
-             enabledTrackTags="" currentSidePanel="Search" viewleft="99.1592356687898"
-             viewright="122.251282655822" tracktop="0.0" scrollWhenPlaying="1"
+             enabledTrackTags="" currentSidePanel="Search" viewleft="61.66058107589949"
+             viewright="84.75262806293165" tracktop="0.0" scrollWhenPlaying="1"
              scrollSuspended="0"/>
   <EDITMIXGROUPS/>
   <AUDIOEDITING/>
@@ -108,6 +108,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1021" enabled="1">
       <MACROPARAMETERS id="1022"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -159,6 +160,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1034" enabled="1">
       <MACROPARAMETERS id="1035"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -264,12 +266,14 @@
       <LOOPINFO rootNote="-1" numBeats="16.94" oneShot="0" denominator="4" numerator="4"
                 bpm="0.0" inMarker="0" outMarker="-1"/>
     </AUDIOCLIP>
-    <PLUGIN type="volume" id="1043" enabled="1">
+    <PLUGIN type="volume" id="1043" enabled="1" volume="0.9267241358757019"
+            windowX="221" windowY="150" windowLocked="0">
       <MACROPARAMETERS id="1044"/>
       <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <PLUGIN type="level" id="1047" enabled="1">
       <MACROPARAMETERS id="1048"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -321,6 +325,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1099" enabled="1">
       <MACROPARAMETERS id="1100"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -402,13 +407,14 @@
     </PLUGIN>
     <PLUGIN type="level" id="1060" enabled="1">
       <MACROPARAMETERS id="1061"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
     </OUTPUTDEVICES>
   </TRACK>
   <TRACK id="1064" midiVProp="0.28125" midiVOffset="0.359375" colour="ff00ffaa"
-         height="48.53338329931461">
+         height="48.53338329931461" mute="0">
     <MACROPARAMETERS id="1066"/>
     <MODIFIERS/>
     <AUDIOCLIP name="Track 5 Recording 1" start="4.0" length="43.0" offset="0.0"
@@ -429,12 +435,14 @@
       <LOOPINFO rootNote="-1" numBeats="15.58" oneShot="0" denominator="4" numerator="4"
                 bpm="0.0" inMarker="0" outMarker="-1"/>
     </AUDIOCLIP>
-    <PLUGIN type="volume" id="1069" enabled="1">
+    <PLUGIN type="volume" id="1069" enabled="1" volume="0.3054732382297516"
+            windowX="221" windowY="150" windowLocked="0">
       <MACROPARAMETERS id="1070"/>
       <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <PLUGIN type="level" id="1073" enabled="1">
       <MACROPARAMETERS id="1074"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -630,6 +638,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1086" enabled="1">
       <MACROPARAMETERS id="1087"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -663,6 +672,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1282" enabled="1">
       <MACROPARAMETERS id="1283"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>
@@ -684,6 +694,7 @@
     </PLUGIN>
     <PLUGIN type="level" id="1112" enabled="1">
       <MACROPARAMETERS id="1113"/>
+      <MODIFIERASSIGNMENTS/>
     </PLUGIN>
     <OUTPUTDEVICES>
       <DEVICE name="(default audio output)"/>

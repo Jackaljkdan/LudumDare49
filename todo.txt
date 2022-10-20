@@ -1,0 +1,12 @@
+- cannone che quando ti colpisce fa fare un 360/180/90 alla telecamera
+- cannone che quando ti colpisce ti attacca qualcosa da un lato che pesa di più da quella parte
+- modalità matrix
+	- quando ti spara un cannone il tempo rallenta
+	- ti muovi al rallentatore ma più velocemente del resto
+	- in sovrimpressione compare il codice discendente verde alla matrix
+		- is this matrics?!
+		- duuude
+		- hoow??
+		- whoa
+		- very action!
+		- i caratteri flickerano, sostituiti con uno tra: @#°$£*/-+□☺☻♥♦♣♠•○
